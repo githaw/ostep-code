@@ -18,6 +18,12 @@ prompt> ./cpu A
 ```
 prompt> ./mem 1
 ```
+这个例子需要[关闭地址空间随机化(ASLR)](https://blog.csdn.net/white_eyes/article/details/7169199)
+
+确认ASLR是否已经被打开，"2"表示已经打开
+
+需要在root用户下，
+echo 0 > /proc/sys/kernel/randomize_va_space 
 
 ```
 prompt> ./threads 10000
@@ -26,6 +32,7 @@ prompt> ./threads 10000
 ```
 prompt> ./io
 ```
+为处理写入期间系统崩溃的问题，会引入一些保护机制和协议：如日志（journaling）或写时复制（copy-on-write）
 
 
 ## Details
